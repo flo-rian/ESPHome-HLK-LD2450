@@ -1,5 +1,6 @@
 #pragma once
 #include <map>
+#include "esphome/core/automation.h"
 #include "target.h"
 #ifdef USE_BINARY_SENSOR
 #include "esphome/components/binary_sensor/binary_sensor.h"

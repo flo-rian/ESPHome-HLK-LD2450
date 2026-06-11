@@ -15,18 +15,17 @@ namespace esphome::ld2450
         void setup() override
         {
             // Determine unit conversion
-            if (unit_of_measurement_ != nullptr)
-            {
-                if (strcmp(unit_of_measurement_, "m") == 0)
-                    conversion_factor_ = 0.001f;
-                else if ((strcmp(unit_of_measurement_, "cm") == 0))
-                    conversion_factor_ = 0.1f;
-            }
+            const StringRef unit = this->get_unit_of_measurement_ref();
+            if (unit == "m")
+                conversion_factor_ = 0.001f;
+            else if (unit == "cm")
+                conversion_factor_ = 0.1f;
         }
 
         void update() override
         {
-            if (raw_state != value_ && !(std::isnan(raw_state) && std::isnan(value_)))
+            const float current = this->get_raw_state();
+            if (current != value_ && !(std::isnan(current) && std::isnan(value_)))
                 publish_state(value_);
         }
 

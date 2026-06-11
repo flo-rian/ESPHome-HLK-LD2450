@@ -345,7 +345,7 @@ namespace esphome::ld2450
             occupancy_binary_sensor_->publish_state(is_occupied_);
 #endif
 #ifdef USE_SENSOR
-        if (target_count_sensor_ != nullptr && target_count_sensor_->raw_state != target_count)
+        if (target_count_sensor_ != nullptr && target_count_sensor_->get_raw_state() != target_count)
             target_count_sensor_->publish_state(target_count);
 #endif
 
