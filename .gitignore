@@ -3,3 +3,6 @@
 /secrets.yaml
 */__pycache__/
 *.pyc
+
+# Local SSH deploy key (never commit)
+.deploy-key/
